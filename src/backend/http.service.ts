@@ -9,8 +9,6 @@ const TDHeaders = {
   }
 };
 
-// const JennyAaBerg = '23c1f927-0342-4e7b-856e-9b5d802081a7_c418b5e6-ef7a-4774-88bc-762f2e9adc53';
-
 const TDUrl = "https://api.td-davinci.com/api";
 const customersUrl = `${TDUrl}/customers`;
 

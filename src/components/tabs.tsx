@@ -1,35 +1,36 @@
-import * as React from 'react';
-import { withStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import SwipeableViews from 'react-swipeable-views';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import Typography from '@material-ui/core/Typography';
+import * as React from "react";
+import { withStyles } from "@material-ui/core/styles";
+import AppBar from "@material-ui/core/AppBar";
+import SwipeableViews from "react-swipeable-views";
+import Tabs from "@material-ui/core/Tabs";
+import Tab from "@material-ui/core/Tab";
+import Typography from "@material-ui/core/Typography";
 
 import OfferTab from './offerTab';
 
 type Props = { classes: any; theme: any };
 
-type TabContainerType = {
+type TabContainerProps = {
   children: any;
-  dir: any;
+  dir: string;
 };
 
 type ThemeType = any;
 
-function TabContainer({ children, dir }: TabContainerType) {
-  return (
-    <Typography component="div" dir={dir}>
-      {children}
-    </Typography>
-  );
-}
+const TabContainer: React.StatelessComponent<TabContainerProps> = ({
+  children,
+  dir
+}: TabContainerProps) => (
+  <Typography component="div" dir={dir} style={{ padding: 24 }}>
+    {children}
+  </Typography>
+);
 
 const styles = (theme: ThemeType) => ({
   root: {
     backgroundColor: theme.palette.background.paper,
-    height: '100%',
-    width: '100%'
+    height: "100%",
+    width: "100%"
   }
 });
 
@@ -42,7 +43,7 @@ class FullTabs extends React.Component<Props> {
     this.setState({ value });
   };
 
-  handleChangeIndex = (index: any) => {
+  handleChangeIndex = (index: number) => {
     this.setState({ value: index });
   };
 
@@ -64,7 +65,7 @@ class FullTabs extends React.Component<Props> {
           </Tabs>
         </AppBar>
         <SwipeableViews
-          axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+          axis={theme.direction === "rtl" ? "x-reverse" : "x"}
           index={this.state.value}
           onChangeIndex={this.handleChangeIndex}
         >
