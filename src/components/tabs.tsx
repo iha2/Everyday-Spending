@@ -26,7 +26,8 @@ function TabContainer({ children, dir }: TabContainerType) {
 const styles = (theme: ThemeType) => ({
   root: {
     backgroundColor: theme.palette.background.paper,
-    width: 500
+    height: '100%',
+    width: '100%'
   }
 });
 
@@ -56,8 +57,8 @@ class FullTabs extends React.Component<Props> {
             textColor="primary"
             fullWidth={true}
           >
-            <Tab label="Item One" />
-            <Tab label="Item Two" />
+            <Tab label="My Offers" />
+            <Tab label="Tracked Transactions" />
           </Tabs>
         </AppBar>
         <SwipeableViews
