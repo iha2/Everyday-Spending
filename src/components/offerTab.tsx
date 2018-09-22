@@ -1,8 +1,8 @@
-import * as React from 'react';
-import ArrowIcon from '@material-ui/icons/ArrowRight';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import ExpansionPanel from './expansionPanel';
-import OfferCard from './offerCard';
+import * as React from "react";
+import ArrowIcon from "@material-ui/icons/ArrowRight";
+import ChevronRightIcon from "@material-ui/icons/ChevronRight";
+import ExpansionPanel from "./expansionPanel";
+import { Merchant } from "./merchant";
 
 type Props = {
   availableOffers: any[];
@@ -22,7 +22,16 @@ const OfferTab: React.SFC<Props> = (props: Props) => {
       >
         {earnedOffers.map((offer, i) => (
           <ExpansionPanel key={i} header={offer.merchantName}>
-            <OfferCard offer={offer} />
+            <Merchant
+              labels={["Starbucks", "Tim Hortons"]}
+              datasets={[
+                {
+                  label: "Merchants",
+                  data: [12, 24],
+                  backgroundColor: ["#3e95cd", "#8e5ea2"]
+                }
+              ]}
+            />
           </ExpansionPanel>
         ))}
       </ExpansionPanel>
@@ -36,7 +45,16 @@ const OfferTab: React.SFC<Props> = (props: Props) => {
             header={offer.merchantName}
             icon={<ArrowIcon />}
           >
-            <OfferCard offer={offer} />
+            <Merchant
+              labels={["Starbucks", "Tim Hortons"]}
+              datasets={[
+                {
+                  label: "Merchants",
+                  data: [12, 24],
+                  backgroundColor: ["#3e95cd", "#8e5ea2"]
+                }
+              ]}
+            />
           </ExpansionPanel>
         ))}
       </ExpansionPanel>

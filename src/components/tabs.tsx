@@ -5,7 +5,6 @@ import SwipeableViews from "react-swipeable-views";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
-import { Merchant } from "./merchant";
 
 import OfferTab from './offerTab';
 
@@ -18,15 +17,6 @@ type TabContainerProps = {
 
 type ThemeType = any;
 
-<<<<<<< HEAD
-function TabContainer({ children, dir }: TabContainerType) {
-  return (
-    <Typography component="div" dir={dir}>
-      {children}
-    </Typography>
-  );
-}
-=======
 const TabContainer: React.StatelessComponent<TabContainerProps> = ({
   children,
   dir
@@ -35,7 +25,6 @@ const TabContainer: React.StatelessComponent<TabContainerProps> = ({
     {children}
   </Typography>
 );
->>>>>>> 74a89b5... merchant cart
 
 const styles = (theme: ThemeType) => ({
   root: {
