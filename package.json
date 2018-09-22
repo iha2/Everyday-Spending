@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^3.1.0",
+    "@material-ui/icons": "^3.0.1",
     "@types/chartjs": "^0.0.31",
     "@types/material-ui": "^0.21.5",
     "@types/react-swipeable-views": "^0.12.2",
