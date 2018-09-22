@@ -69,7 +69,10 @@ class FullTabs extends React.Component<Props> {
           onChangeIndex={this.handleChangeIndex}
         >
           <TabContainer dir={theme.direction}>
-            <OfferTab availableOffers={[1]} earnedOffers={[1]} />
+            <OfferTab
+              availableOffers={[{ merchantName: 'Starbucks' }]}
+              earnedOffers={[{ merchantName: 'Starbucks' }]}
+            />
           </TabContainer>
           <TabContainer dir={theme.direction}>Item Two</TabContainer>
         </SwipeableViews>

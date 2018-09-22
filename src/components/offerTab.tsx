@@ -1,5 +1,8 @@
 import * as React from 'react';
+import ArrowIcon from '@material-ui/icons/ArrowRight';
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ExpansionPanel from './expansionPanel';
+import OfferCard from './offerCard';
 
 type Props = {
   availableOffers: any[];
@@ -10,17 +13,32 @@ type Props = {
 // Connect for offer data
 
 const OfferTab: React.SFC<Props> = (props: Props) => {
+  const { availableOffers, earnedOffers } = props;
   return (
     <div>
       <ExpansionPanel
-        header={<div>{props.earnedOffers.length} Earned Offers</div>}
+        header={<div>{earnedOffers.length} Earned Offers</div>}
+        icon={<ChevronRightIcon />}
       >
-        <div>Earned Offers</div>
+        {earnedOffers.map((offer, i) => (
+          <ExpansionPanel key={i} header={offer.merchantName}>
+            <OfferCard offer={offer} />
+          </ExpansionPanel>
+        ))}
       </ExpansionPanel>
       <ExpansionPanel
-        header={<div>{props.availableOffers.length} Available Offers</div>}
+        header={<div>{availableOffers.length} Available Offers</div>}
+        icon={<ChevronRightIcon />}
       >
-        <div>Available Offers</div>
+        {earnedOffers.map((offer, i) => (
+          <ExpansionPanel
+            key={i}
+            header={offer.merchantName}
+            icon={<ArrowIcon />}
+          >
+            <OfferCard offer={offer} />
+          </ExpansionPanel>
+        ))}
       </ExpansionPanel>
     </div>
   );

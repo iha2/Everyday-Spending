@@ -4,7 +4,6 @@ import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Typography from '@material-ui/core/Typography';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 
 type ThemeType = any;
 
@@ -22,18 +21,18 @@ type Props = {
   children: any;
   classes: any;
   header: any;
+  icon?: any | null;
 };
 
 const ExpansionPanelBar: React.SFC<Props> = (props: Props) => {
+  const { children, classes, header, icon } = props;
   return (
-    <div className={props.classes.root}>
+    <div className={classes.root}>
       <ExpansionPanel>
-        <ExpansionPanelSummary expandIcon={<ChevronRightIcon />}>
-          <Typography className={props.classes.heading}>
-            {props.header}
-          </Typography>
+        <ExpansionPanelSummary expandIcon={icon ? icon : null}>
+          <Typography className={classes.heading}>{header}</Typography>
         </ExpansionPanelSummary>
-        r<ExpansionPanelDetails>{props.children}</ExpansionPanelDetails>
+        <ExpansionPanelDetails>{children}</ExpansionPanelDetails>
       </ExpansionPanel>
     </div>
   );
