@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography';
 
 import OfferTab from './offerTab';
 
-type Props = { classes: any; theme: any };
+type Props = { classes: any; customerData?: any; theme: any };
 
 type TabContainerType = {
   children: any;

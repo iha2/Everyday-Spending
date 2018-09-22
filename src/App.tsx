@@ -18,7 +18,7 @@ class App extends React.Component<any, any> {
   public componentWillMount() {
     getCustomer(JennyAaBerg).subscribe(customerData =>
       this.setState({
-        customerData
+        customerData: customerData.data.result
       })
     );
   }
