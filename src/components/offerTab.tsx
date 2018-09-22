@@ -17,7 +17,7 @@ const OfferTab: React.SFC<Props> = (props: Props) => {
   return (
     <div>
       <ExpansionPanel
-        header={<div>{earnedOffers.length} Earned Offers</div>}
+        header={<span>{earnedOffers.length} Earned Offers</span>}
         icon={<ChevronRightIcon />}
       >
         {earnedOffers.map((offer, i) => (
@@ -27,7 +27,7 @@ const OfferTab: React.SFC<Props> = (props: Props) => {
         ))}
       </ExpansionPanel>
       <ExpansionPanel
-        header={<div>{availableOffers.length} Available Offers</div>}
+        header={<span>{availableOffers.length} Available Offers</span>}
         icon={<ChevronRightIcon />}
       >
         {earnedOffers.map((offer, i) => (
