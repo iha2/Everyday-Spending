@@ -55,7 +55,11 @@ const OfferTab: React.SFC<Props> = (props: Props) => {
         icon={<ChevronRightIcon />}
       >
         {earnedOffers.map((offer, i) => (
-          <ExpansionPanel key={i} header={offer.merchantName}>
+          <ExpansionPanel
+            key={i}
+            header={offer.merchantName}
+            style={{ backgroundColor: '#eef6eb', color: '#FFFFFF' }}
+          >
             <Merchant
               labels={['Starbucks', 'Tim Hortons']}
               datasets={[

@@ -10,6 +10,23 @@ export const customersUrl = `${TDUrl}/customers`;
 
 export const merchantCategories = ['Food and Dining', 'Shopping'];
 
+export const merchantData = {
+  'a3c83ad2-6ac5-47ad-9adc-b8f93bfaf8ae': {
+    name: 'Starbucks',
+    image:
+      'https://images-na.ssl-images-amazon.com/images/I/81Nz6ZX8HhL._SL1500_.jpg'
+  },
+  'e1db0402-57e1-47be-9b31-f56b6271e6e0': {
+    name: `Tim Horton's`,
+    image: 'https://www.timhortons.com/ca/images/large-red-logo.png'
+  },
+  'e84dcb0a-1a9b-4df6-9f39-9e1f55a92575': {
+    name: 'Winners',
+    image:
+      'https://www.conestogamall.com/media/stores/logos/Winners-department-store-clothing-home-beauty-jewelry-shoes-logo_JsUCPZn.svg'
+  }
+};
+
 // export const merchantChart = {
 //   categoryCode: {
 //     'coffee': { display: 'Coffee and Drinks' },

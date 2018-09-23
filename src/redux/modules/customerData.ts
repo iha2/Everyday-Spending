@@ -65,6 +65,14 @@ export const fetchCustomerTransactionsDataEpic = (
 
 const initialState = {
   customer: {},
+  offers: [
+    {
+      merchantId: 'e84dcb0a-1a9b-4df6-9f39-9e1f55a92575',
+      minSpendAmount: 200,
+      lifeSpan: 'week',
+      multiplier: 2
+    }
+  ],
   transactions: {}
 };
 
