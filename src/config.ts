@@ -16,6 +16,11 @@ export const merchantData = {
     image:
       'https://images-na.ssl-images-amazon.com/images/I/81Nz6ZX8HhL._SL1500_.jpg'
   },
+  '1ecc6c9f-ffe7-47d3-9697-78d299b17996': {
+    name: 'Swiss Chalet',
+    image:
+      'https://www.mallmaverick.com/system/stores/store_fronts/000/022/663/original/Swiss-Chalet_edited.jpg?1452747452'
+  },
   'e1db0402-57e1-47be-9b31-f56b6271e6e0': {
     name: 'Tim Hortons',
     image: 'https://www.timhortons.com/ca/images/large-red-logo.png'

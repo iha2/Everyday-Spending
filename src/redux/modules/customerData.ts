@@ -8,7 +8,9 @@ export enum CustomerActions {
   FETCH_CUSTOMER_REQUEST = 'FETCH_CUSTOMER_REQUEST',
   FETCH_CUSTOMER_SUCCESS = 'FETCH_CUSTOMER_SUCCESS',
   FETCH_CUSTOMER_TRANSACTIONS_REQUEST = 'FETCH_CUSTOMER_TRANSACTIONS_REQUEST',
-  FETCH_CUSTOMER_TRANSACTIONS_SUCCESS = 'FETCH_CUSTOMER_TRANSACTIONS_SUCCESS'
+  FETCH_CUSTOMER_TRANSACTIONS_SUCCESS = 'FETCH_CUSTOMER_TRANSACTIONS_SUCCESS',
+  SET_STARBUCKS_OFFER = 'SET_STARBUCKS_OFFER',
+  SET_TIMS_OFFER = 'SET_TIMS_OFFER'
 }
 
 export const customerDataActions = {
@@ -90,6 +92,26 @@ export const customerDataReducer = (
       return { ...state, ...payload };
     case CustomerActions.FETCH_CUSTOMER_TRANSACTIONS_SUCCESS:
       return { ...state, ...payload };
+    case CustomerActions.SET_STARBUCKS_OFFER:
+      return {
+        ...state,
+        offers: state.offers.splice(4, 1, {
+          merchantId: 'a3c83ad2-6ac5-47ad-9adc-b8f93bfaf8ae',
+          minSpendAmount: 50,
+          lifeSpan: 'week',
+          multiplier: 3
+        })
+      };
+    case CustomerActions.SET_TIMS_OFFER:
+      return {
+        ...state,
+        offers: state.offers.splice(4, 1, {
+          merchantId: 'e1db0402-57e1-47be-9b31-f56b6271e6e0',
+          minSpendAmount: 50,
+          lifeSpan: 'week',
+          multiplier: 3
+        })
+      };
     default:
       return state;
   }
