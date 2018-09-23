@@ -1,8 +1,10 @@
-import * as React from "react";
-import ArrowIcon from "@material-ui/icons/ArrowRight";
-import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-import ExpansionPanel from "./expansionPanel";
-import { Merchant } from "./merchant";
+import * as React from 'react';
+import ArrowIcon from '@material-ui/icons/ArrowRight';
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import Chip from '@material-ui/core/Chip';
+import Typography from '@material-ui/core/Typography';
+import ExpansionPanel from './expansionPanel';
+import { Merchant } from './merchant';
 
 type Props = {
   availableOffers: any[];
@@ -17,18 +19,23 @@ const OfferTab: React.SFC<Props> = (props: Props) => {
   return (
     <div>
       <ExpansionPanel
-        header={<span>{earnedOffers.length} Earned Offers</span>}
+        header={
+          <span className="flex items-center">
+            <Chip label={earnedOffers.length} />
+            <Typography className="pl3">Earned Offers</Typography>
+          </span>
+        }
         icon={<ChevronRightIcon />}
       >
         {earnedOffers.map((offer, i) => (
           <ExpansionPanel key={i} header={offer.merchantName}>
             <Merchant
-              labels={["Starbucks", "Tim Hortons"]}
+              labels={['Starbucks', 'Tim Hortons']}
               datasets={[
                 {
-                  label: "Merchants",
+                  label: 'Merchants',
                   data: [12, 24],
-                  backgroundColor: ["#3e95cd", "#8e5ea2"]
+                  backgroundColor: ['#3e95cd', '#8e5ea2']
                 }
               ]}
             />
@@ -36,7 +43,12 @@ const OfferTab: React.SFC<Props> = (props: Props) => {
         ))}
       </ExpansionPanel>
       <ExpansionPanel
-        header={<span>{availableOffers.length} Available Offers</span>}
+        header={
+          <span className="flex items-center">
+            <Chip label={availableOffers.length} />
+            <Typography className="pl3">Available Offers</Typography>
+          </span>
+        }
         icon={<ChevronRightIcon />}
       >
         {earnedOffers.map((offer, i) => (
@@ -46,12 +58,12 @@ const OfferTab: React.SFC<Props> = (props: Props) => {
             icon={<ArrowIcon />}
           >
             <Merchant
-              labels={["Starbucks", "Tim Hortons"]}
+              labels={['Starbucks', 'Tim Hortons']}
               datasets={[
                 {
-                  label: "Merchants",
+                  label: 'Merchants',
                   data: [12, 24],
-                  backgroundColor: ["#3e95cd", "#8e5ea2"]
+                  backgroundColor: ['#3e95cd', '#8e5ea2']
                 }
               ]}
             />

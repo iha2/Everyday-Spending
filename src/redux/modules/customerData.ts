@@ -40,7 +40,19 @@ export const fetchCustomerTransactionsDataEpic = (
     mergeMap(({ customer }) => getAllTransactions(customer)),
     map(res => ({
       type: CustomerActions.FETCH_CUSTOMER_TRANSACTIONS_SUCCESS,
-      payload: { transactions: res.data.result }
+      payload: {
+        transactions: res.data.result,
+        merchants: {
+          names: [
+            { Starbucks: 'a3c83ad2-6ac5-47ad-9adc-b8f93bfaf8ae' },
+            { 'Tim Hortons': 'e1db0402-57e1-47be-9b31-f56b6271e6e0' }
+          ],
+          byId: {
+            'a3c83ad2-6ac5-47ad-9adc-b8f93bfaf8ae': 'Starbucks',
+            'e1db0402-57e1-47be-9b31-f56b6271e6e0': 'Tim Hortons'
+          }
+        }
+      }
     }))
   );
 };
