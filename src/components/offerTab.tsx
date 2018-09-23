@@ -1,20 +1,37 @@
 import * as React from 'react';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import { createStructuredSelector } from 'reselect';
 import Chip from '@material-ui/core/Chip';
 import Typography from '@material-ui/core/Typography';
+import { connect } from 'react-redux';
+import { merchantData } from '../config';
 import ExpansionPanel from './expansionPanel';
 import { Merchant } from './merchant';
+import { Transaction } from '../backend';
 
 type Props = {
   availableOffers: any[];
   earnedOffers: any[];
+  sortedMerchants: Record<string, Transaction[]>;
   children?: any;
 };
 
-// Connect for offer data
+const sortByMerchantID = (state: any) => {
+  return state.customerDataReducer.transactions.reduce((acc: any, transaction: any) => {
+    const keyConfig = (Object.keys(merchantData) as any).includes(transaction.merchantId);
+    const key = (keyConfig) ? merchantData[transaction.merchantId].name: transaction.merchantId; 
+    const updated = [...(acc[key] || []),  transaction];
+    return { ...acc, ...{ [key]: updated } };
+}, {});
+}
 
-const OfferTab: React.SFC<Props> = (props: Props) => {
-  const { availableOffers, earnedOffers } = props;
+const mapStateToProps = createStructuredSelector({
+  sortedMerchants: sortByMerchantID
+});
+
+const OfferTab: React.SFC<Props> = ({ availableOffers, earnedOffers, sortedMerchants }: Props) => {
+  console.log((sortedMerchants.Starbucks || []).reduce((acc, trans) => acc + trans.currencyAmount, 0));
+  // const { availableOffers, earnedOffers } = props;
   return (
     <div>
       <ExpansionPanel
@@ -37,7 +54,7 @@ const OfferTab: React.SFC<Props> = (props: Props) => {
               datasets={[
                 {
                   label: 'Merchants',
-                  data: [12, 24],
+                  data: [(sortedMerchants.Starbucks || []).reduce((acc, trans) => acc + trans.currencyAmount, 0), (sortedMerchants['Tim Hortons'] || []).reduce((acc, trans) => acc + trans.currencyAmount, 0)],
                   backgroundColor: ['#3e95cd', '#8e5ea2']
                 }
               ]}
@@ -65,7 +82,7 @@ const OfferTab: React.SFC<Props> = (props: Props) => {
               datasets={[
                 {
                   label: 'Merchants',
-                  data: [12, 24],
+                  data: [(sortedMerchants.Starbucks || []).reduce((acc, trans) => acc + trans.currencyAmount, 0), 24],
                   backgroundColor: ['#3e95cd', '#8e5ea2']
                 }
               ]}
@@ -77,4 +94,4 @@ const OfferTab: React.SFC<Props> = (props: Props) => {
   );
 };
 
-export default OfferTab;
+export default connect(mapStateToProps)(OfferTab);
