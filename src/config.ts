@@ -7,3 +7,16 @@ export const TDHeaders = {
 
 export const TDUrl = 'https://api.td-davinci.com/api';
 export const customersUrl = `${TDUrl}/customers`;
+
+export const merchantCategories = ['Food and Dining', 'Shopping'];
+
+// export const merchantChart = {
+//   categoryCode: {
+//     'coffee': { display: 'Coffee and Drinks' },
+//     'shopping': { display: 'Shopping'}
+//   },
+//   mapping: {
+//     'coffee': ['e1db0402-57e1-47be-9b31-f56b6271e6e0'],
+//     'shopping': ['e84dcb0a-1a9b-4df6-9f39-9e1f55a92575']
+//   }
+// }

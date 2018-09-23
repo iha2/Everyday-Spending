@@ -1,6 +1,7 @@
 import { ofType, combineEpics, ActionsObservable } from 'redux-observable';
 import { map, mergeMap } from 'rxjs/operators';
 
+// import { merchantCategories } from '../../config';
 import { getAllTransactions, getCustomer } from '../../backend/http.service';
 
 export enum CustomerActions {
@@ -42,6 +43,11 @@ export const fetchCustomerTransactionsDataEpic = (
       type: CustomerActions.FETCH_CUSTOMER_TRANSACTIONS_SUCCESS,
       payload: {
         transactions: res.data.result,
+        // .filter(transaction =>
+        //   merchantCategories.find(
+        //     merchant => merchant === transaction.categoryTags[0]
+        //   )
+        // ),
         merchants: {
           names: [
             { Starbucks: 'a3c83ad2-6ac5-47ad-9adc-b8f93bfaf8ae' },
