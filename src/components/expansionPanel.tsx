@@ -22,6 +22,7 @@ type Props = {
   classes: any;
   header: any;
   icon?: any | null;
+  style?: any;
 };
 
 const ExpansionPanelBar: React.SFC<Props> = (props: Props) => {
@@ -29,7 +30,10 @@ const ExpansionPanelBar: React.SFC<Props> = (props: Props) => {
   return (
     <div className={classes.root}>
       <ExpansionPanel>
-        <ExpansionPanelSummary expandIcon={icon ? icon : null}>
+        <ExpansionPanelSummary
+          expandIcon={icon ? icon : null}
+          style={...props.style}
+        >
           <Typography className={classes.heading}>{header}</Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>{children}</ExpansionPanelDetails>

@@ -1,5 +1,4 @@
 import * as React from 'react';
-import ArrowIcon from '@material-ui/icons/ArrowRight';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import Chip from '@material-ui/core/Chip';
 import Typography from '@material-ui/core/Typography';
@@ -28,7 +27,11 @@ const OfferTab: React.SFC<Props> = (props: Props) => {
         icon={<ChevronRightIcon />}
       >
         {earnedOffers.map((offer, i) => (
-          <ExpansionPanel key={i} header={offer.merchantName}>
+          <ExpansionPanel
+            key={i}
+            header={offer.merchantName}
+            style={{ backgroundColor: '#eef6eb', color: '#FFFFFF' }}
+          >
             <Merchant
               labels={['Starbucks', 'Tim Hortons']}
               datasets={[
@@ -52,11 +55,7 @@ const OfferTab: React.SFC<Props> = (props: Props) => {
         icon={<ChevronRightIcon />}
       >
         {earnedOffers.map((offer, i) => (
-          <ExpansionPanel
-            key={i}
-            header={offer.merchantName}
-            icon={<ArrowIcon />}
-          >
+          <ExpansionPanel key={i} header={offer.merchantName}>
             <Merchant
               labels={['Starbucks', 'Tim Hortons']}
               datasets={[
