@@ -69,10 +69,16 @@ const initialState = {
   customer: {},
   offers: [
     {
-      merchantId: 'e84dcb0a-1a9b-4df6-9f39-9e1f55a92575',
-      minSpendAmount: 200,
+      merchantId: '1ecc6c9f-ffe7-47d3-9697-78d299b17996',
+      minSpendAmount: 50,
       lifeSpan: 'week',
       multiplier: 2
+    },
+    {
+      merchantId: 'e84dcb0a-1a9b-4df6-9f39-9e1f55a92575',
+      minSpendAmount: 15,
+      lifeSpan: 'week',
+      multiplier: 3
     }
   ],
   transactions: []
@@ -95,9 +101,9 @@ export const customerDataReducer = (
     case CustomerActions.SET_STARBUCKS_OFFER:
       return {
         ...state,
-        offers: state.offers.splice(4, 1, {
+        offers: state.offers.splice(2, 1, {
           merchantId: 'a3c83ad2-6ac5-47ad-9adc-b8f93bfaf8ae',
-          minSpendAmount: 50,
+          minSpendAmount: 30,
           lifeSpan: 'week',
           multiplier: 3
         })
@@ -105,9 +111,9 @@ export const customerDataReducer = (
     case CustomerActions.SET_TIMS_OFFER:
       return {
         ...state,
-        offers: state.offers.splice(4, 1, {
+        offers: state.offers.splice(2, 1, {
           merchantId: 'e1db0402-57e1-47be-9b31-f56b6271e6e0',
-          minSpendAmount: 50,
+          minSpendAmount: 30,
           lifeSpan: 'week',
           multiplier: 3
         })
