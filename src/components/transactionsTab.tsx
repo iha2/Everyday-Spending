@@ -27,7 +27,7 @@ class TransactionsTab extends React.Component<any, any> {
                     <span>
                       <Typography>
                         {transaction.merchantName} -{' '}
-                        {transaction.currencyAmount}
+                        {transaction.currencyAmount} :: {transaction.merchantId}
                       </Typography>
                     </span>
                   ))}

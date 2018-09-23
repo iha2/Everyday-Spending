@@ -11,6 +11,15 @@ export const customersUrl = `${TDUrl}/customers`;
 export const merchantCategories = ['Food and Dining', 'Shopping'];
 
 export const merchantData = {
+  '093edae8-d92a-4997-a0c0-49a09e7970c7': {
+    name: 'Milestones',
+    image:
+      'https://www.mallmaverick.com/system/stores/store_fronts/000/022/608/original/milestones.png?1452747359'
+  },
+  '67f3f9e5-7d9a-4e5a-8d38-cfb241802b8c': {
+    name: 'Old Navy',
+    image: 'http://hbtrim.com/wp-content/uploads/2016/10/old-navy-logo-1.jpg'
+  },
   'a3c83ad2-6ac5-47ad-9adc-b8f93bfaf8ae': {
     name: 'Starbucks',
     image:
