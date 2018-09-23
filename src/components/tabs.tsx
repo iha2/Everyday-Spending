@@ -7,6 +7,7 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 
 import OfferTab from './offerTab';
+import TransactionsTab from './transactionsTab';
 
 type Props = { classes: any; customerData?: any; theme: any };
 
@@ -75,7 +76,9 @@ class FullTabs extends React.Component<Props> {
               earnedOffers={[{ merchantName: 'Starbucks' }]}
             />
           </TabContainer>
-          <TabContainer dir={theme.direction}>Item Two</TabContainer>
+          <TabContainer dir={theme.direction}>
+            <TransactionsTab />
+          </TabContainer>
         </SwipeableViews>
       </div>
     );

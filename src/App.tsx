@@ -51,11 +51,11 @@ class App extends React.Component<any, any> {
 
 const mapStateToProps = (state: any) => ({});
 
-const mapDisptachToProps = {
+const mapDispatchToProps = {
   ...customerDataActions
 };
 
 export default connect(
   mapStateToProps,
-  mapDisptachToProps
+  mapDispatchToProps
 )(withStyles(styles)(App));

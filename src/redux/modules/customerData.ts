@@ -73,7 +73,7 @@ const initialState = {
       multiplier: 2
     }
   ],
-  transactions: {}
+  transactions: []
 };
 
 export const customerDataEpic = combineEpics(
