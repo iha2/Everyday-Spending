@@ -4,26 +4,13 @@ import NavBar from './components/navbar';
 import Tabs from './components/tabs';
 import { customerDataActions } from './redux/modules/customerData';
 
-// const JennyAaBerg =
-//   '23c1f927-0342-4e7b-856e-9b5d802081a7_c418b5e6-ef7a-4774-88bc-762f2e9adc53';
+const JennyAaBerg =
+  'c3990768-e7b6-4d4b-bca3-39434d9078b7_9c8b689c-daec-4fe6-836d-07d36f9dbcc9';
 
 class App extends React.Component<any, any> {
-  constructor(props: any) {
-    super(props);
-
-    this.state = {
-      customerData: 'undefined'
-    };
-  }
-
   public componentWillMount() {
-    console.warn('fetch');
-    this.props.fetchCustomerData();
-    // getCustomer(JennyAaBerg).subscribe(customerData =>
-    //   this.setState({
-    //     customerData: customerData.data.result
-    //   })
-    // );
+    this.props.fetchCustomerData(JennyAaBerg);
+    this.props.fetchCustomerTransactionsData(JennyAaBerg);
   }
 
   public render() {
