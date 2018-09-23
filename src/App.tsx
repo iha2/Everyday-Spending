@@ -1,10 +1,11 @@
 import * as React from 'react';
+import { connect } from 'react-redux';
 import NavBar from './components/navbar';
 import Tabs from './components/tabs';
-import { getCustomer } from './backend';
+import { customerDataActions } from './redux/modules/customerData';
 
-const JennyAaBerg =
-  '23c1f927-0342-4e7b-856e-9b5d802081a7_c418b5e6-ef7a-4774-88bc-762f2e9adc53';
+// const JennyAaBerg =
+//   '23c1f927-0342-4e7b-856e-9b5d802081a7_c418b5e6-ef7a-4774-88bc-762f2e9adc53';
 
 class App extends React.Component<any, any> {
   constructor(props: any) {
@@ -16,11 +17,13 @@ class App extends React.Component<any, any> {
   }
 
   public componentWillMount() {
-    getCustomer(JennyAaBerg).subscribe(customerData =>
-      this.setState({
-        customerData: customerData.data.result
-      })
-    );
+    console.warn('fetch');
+    this.props.fetchCustomerData();
+    // getCustomer(JennyAaBerg).subscribe(customerData =>
+    //   this.setState({
+    //     customerData: customerData.data.result
+    //   })
+    // );
   }
 
   public render() {
@@ -39,4 +42,13 @@ class App extends React.Component<any, any> {
   }
 }
 
-export default App;
+const mapStateToProps = (state: any) => ({});
+
+const mapDisptachToProps = {
+  ...customerDataActions
+};
+
+export default connect(
+  mapStateToProps,
+  mapDisptachToProps
+)(App);

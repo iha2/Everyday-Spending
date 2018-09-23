@@ -7,7 +7,12 @@ export enum CustomerActions {
   FETCH_CUSTOMER_SUCCESS = 'FETCH_CUSTOMER_SUCCESS'
 }
 
-export const fetchCustomerData = (action$: ActionsObservable<any>) => {
+export const customerDataActions = {
+  fetchCustomerData: () => ({ type: CustomerActions.FETCH_CUSTOMER_REQUEST })
+};
+
+export const fetchCustomerDataEpic = (action$: ActionsObservable<any>) => {
+  console.warn(action$);
   return action$.pipe(
     ofType(CustomerActions.FETCH_CUSTOMER_REQUEST),
     map(() => ({
@@ -32,7 +37,7 @@ const initialState = {
   customer: []
 };
 
-export const customerDataEpic = combineEpics(fetchCustomerData);
+export const customerDataEpic = combineEpics(fetchCustomerDataEpic);
 
 export const customerDataReducer = (
   state: any = initialState,
@@ -40,7 +45,7 @@ export const customerDataReducer = (
 ) => {
   switch (type) {
     case CustomerActions.FETCH_CUSTOMER_SUCCESS:
-      return { state, ...payload.customer };
+      return { state, ...payload };
     default:
       return state;
   }

@@ -4,10 +4,10 @@ import * as ReactDOM from 'react-dom';
 import App from './App';
 import './index.css';
 import registerServiceWorker from './registerServiceWorker';
-import { store } from './redux';
+import store from './redux';
 
 ReactDOM.render(
-  <Provider store={store}>
+  <Provider store={store()}>
     <App />
   </Provider>,
   document.getElementById('root') as HTMLElement
