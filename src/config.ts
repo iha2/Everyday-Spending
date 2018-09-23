@@ -17,7 +17,7 @@ export const merchantData = {
       'https://images-na.ssl-images-amazon.com/images/I/81Nz6ZX8HhL._SL1500_.jpg'
   },
   'e1db0402-57e1-47be-9b31-f56b6271e6e0': {
-    name: `Tim Horton's`,
+    name: 'Tim Hortons',
     image: 'https://www.timhortons.com/ca/images/large-red-logo.png'
   },
   'e84dcb0a-1a9b-4df6-9f39-9e1f55a92575': {
